@@ -1,0 +1,107 @@
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 14px;
+  color: #eee;
+  margin-bottom: 12px;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btnRow {
+  margin-top: 12px;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #0b0b0b;
+  color: #eee;
+}
+
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #0b0b0b;
+  color: #eee;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  color: #eee;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #222;
+}
+
+.danger {
+  border-color: #5a2a2a;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.muted {
+  color: #bdbdbd;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.content {
+  margin-top: 10px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+}
+
+.badge.RECEIVED {}
+.badge.PREP {}
+.badge.IN_PROGRESS {}
+.badge.DONE {}
