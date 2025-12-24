@@ -38,29 +38,43 @@ export default function AuthBox() {
 
  async function logout() {
   try {
-    // 세션이 이미 없어도 signOut을 시도
+    // 1️⃣ Supabase 세션 종료
     const { error } = await supabase.auth.signOut();
 
-    // ✅ 이 에러는 "이미 로그아웃 상태"라서 무시해도 됨
     if (error && !String(error.message).includes("Auth session missing")) {
       alert("로그아웃 실패: " + error.message);
       return;
     }
+
+    // 2️⃣ localStorage 명시적 정리
+    localStorage.clear();
+    
+    // 3️⃣ sessionStorage 정리
+    sessionStorage.clear();
+
   } finally {
-    // ✅ UI/세션 상태 확실히 초기화
+    // 4️⃣ UI 상태 초기화
     setLoggedIn(false);
-    window.location.href = "/";
+    
+    // 5️⃣ 홈으로 이동 (캐시 무시)
+    window.location.href = "/?logout=" + Date.now();
   }
 }
 
 
   return loggedIn ? (
-    <button onClick={logout} style={{ padding: "10px 12px" }}>
+    <button 
+      onClick={logout}
+      className="rounded-lg px-3 py-1.5 text-xs sm:text-sm bg-white/20 hover:bg-white/30 text-white font-medium transition-colors"
+    >
       로그아웃
     </button>
   ) : (
-    <button onClick={loginGoogle} style={{ padding: "10px 12px" }}>
-      Google로 로그인(학교계정)
+    <button 
+      onClick={loginGoogle}
+      className="rounded-lg px-3 py-1.5 text-xs sm:text-sm bg-white/20 hover:bg-white/30 text-white font-medium transition-colors"
+    >
+      로그인
     </button>
   );
 }

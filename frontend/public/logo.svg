@@ -1,0 +1,12 @@
+<svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 외부 원 -->
+  <circle cx="100" cy="100" r="98" fill="none" stroke="#1a6b5e" stroke-width="8"/>
+  <!-- 텍스트 원형 배치 (실제 로고에서는 학교명이 들어감) -->
+  <defs>
+    <path id="circlePath" d="M 100, 100 m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" fill="none"/>
+  </defs>
+  <!-- 내부 방패 모양 (초록색) -->
+  <path d="M 100 50 L 130 75 L 130 120 Q 100 145 100 145 Q 100 145 70 120 L 70 75 Z" fill="none" stroke="#1a6b5e" stroke-width="3" stroke-linejoin="round"/>
+  <!-- 중앙 한글 문자 (高) -->
+  <text x="100" y="115" font-size="35" font-weight="bold" fill="#1a6b5e" text-anchor="middle" font-family="serif">高</text>
+</svg>

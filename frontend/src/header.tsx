@@ -28,31 +28,36 @@ export default function Header() {
     return ADMIN_EMAILS.includes(userEmail);
   }, [userEmail]);
 
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `pb-1 border-b-2 text-sm ${
-      isActive
-        ? "text-black border-black"
-        : "text-gray-600 border-transparent hover:text-black"
-    }`;
-
   return (
-    <header className="bg-white border-b border-gray-200">
-      <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
-        <div className="font-bold text-lg tracking-tight text-black">
-          Suggestion Center
+    <header className="bg-gradient-to-r from-[#1a3a52] to-[#2d5f8d] sticky top-0 z-40 shadow-md">
+      <div className="mx-auto max-w-6xl px-3 sm:px-4 h-14 sm:h-16 flex items-center justify-between">
+        <div className="font-bold text-base sm:text-lg tracking-tight text-white">
+          Suggestion
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <NavLink to="/" className={linkClass}>HOME</NavLink>
-          <NavLink to="/my" className={linkClass}>MY</NavLink>
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <NavLink to="/" className={({ isActive }) => `pb-1 border-b-2 text-sm ${
+            isActive
+              ? "text-white border-white"
+              : "text-green-100 border-transparent hover:text-white"
+          }`}>HOME</NavLink>
+          <NavLink to="/my" className={({ isActive }) => `pb-1 border-b-2 text-sm ${
+            isActive
+              ? "text-white border-white"
+              : "text-green-100 border-transparent hover:text-white"
+          }`}>MY</NavLink>
 
           {isAdmin && (
-            <NavLink to="/admin" className={linkClass}>ADMIN</NavLink>
+            <NavLink to="/admin" className={({ isActive }) => `pb-1 border-b-2 text-sm ${
+              isActive
+                ? "text-white border-white"
+                : "text-green-100 border-transparent hover:text-white"
+            }`}>ADMIN</NavLink>
           )}
         </nav>
 
-        <div className="flex items-center gap-3 text-sm text-gray-700">
-          <div className="hidden sm:block">{userEmail ?? "로그인 필요"}</div>
+        <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-green-100">
+          <div className="hidden sm:block truncate max-w-[150px] md:max-w-full">{userEmail ?? "로그인"}</div>
           <AuthBox />
         </div>
       </div>
